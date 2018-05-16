@@ -58,4 +58,21 @@ footer {
 	font-size: 20px;
 	font-weight: bold;
 }
+li a{
+	font-weight: bold;
+}
+.button-system{
+	margin-top: 5px;
+	width: 100%;
+}
 
+.dropdown-submenu {
+    position: relative;
+	width: 100%;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}

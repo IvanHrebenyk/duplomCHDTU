@@ -1,3 +1,4 @@
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
+function messege_delete_info_system(){
+	alert("Для видалення компоненту з системи, перейдіть на сторінку з повним описом компоненту та натисніть кнопку \"Видалення\"");
+}
+
