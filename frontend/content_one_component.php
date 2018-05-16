@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-8"></div>
 		<div class="col-2">
-			<button class="btn btn-default btn-xs delete-component" style="padding: 0px; float: right;"><a href="#" class="btn btn-default"  >Видалити</a></button>
+			<button class="btn btn-default btn-xs delete-component" style="padding: 0px; float: right;"><a href="#okayDelete" class="btn btn-default" onclick="if(!confirm('Підтвердіть видалення')) return false;" >Видалити</a></button>
 		</div>
 	</div>
 </div>
