@@ -131,7 +131,6 @@ CREATE TABLE `power` (
 	`model` varchar(40) NOT NULL,
 	`watt` INT NOT NULL,
 	`connect_mb` INT NOT NULL,
-	`connect_cpu` INT NOT NULL,
 	`count_sata` INT NOT NULL,
 	`count_molex` INT NOT NULL,
 	PRIMARY KEY (`id`)
@@ -144,10 +143,9 @@ CREATE TABLE `connect_motherboard` (
 );
 
 CREATE TABLE `connect_cpu` (
-	`id` INT NOT NULL AUTO_INCREMENT,
+	`id_power` INT NOT NULL,
 	`count_contact` varchar(10) NOT NULL,
-	`count_loop` INT NOT NULL,
-	PRIMARY KEY (`id`)
+	`count_loop` INT NOT NULL
 );
 
 CREATE TABLE `power_videocard` (
@@ -222,6 +220,31 @@ CREATE TABLE `moderator` (
 	`id_user` INT NOT NULL
 );
 
+CREATE TABLE `image_cpu` (
+	`id_cpu` INT NOT NULL,
+	`path` TEXT NOT NULL
+);
+
+CREATE TABLE `image_motherboard` (
+	`id_mb` INT NOT NULL,
+	`path` TEXT NOT NULL
+);
+
+CREATE TABLE `image_power` (
+	`id_power` INT NOT NULL,
+	`path` TEXT NOT NULL
+);
+
+CREATE TABLE `image_ram` (
+	`id_ram` INT NOT NULL,
+	`path` TEXT NOT NULL
+);
+
+CREATE TABLE `image_rom` (
+	`id_rom` INT NOT NULL,
+	`path` TEXT NOT NULL
+);
+
 ALTER TABLE `videocard` ADD CONSTRAINT `videocard_fk0` FOREIGN KEY (`type_memory`) REFERENCES `type_memory_videocard`(`id`);
 
 ALTER TABLE `additional_power_videocard` ADD CONSTRAINT `additional_power_videocard_fk0` FOREIGN KEY (`id_videocard`) REFERENCES `videocard`(`id`);
@@ -248,7 +271,7 @@ ALTER TABLE `sata_motherboard` ADD CONSTRAINT `sata_motherboard_fk0` FOREIGN KEY
 
 ALTER TABLE `power` ADD CONSTRAINT `power_fk0` FOREIGN KEY (`connect_mb`) REFERENCES `connect_motherboard`(`id`);
 
-ALTER TABLE `power` ADD CONSTRAINT `power_fk1` FOREIGN KEY (`connect_cpu`) REFERENCES `connect_cpu`(`id`);
+ALTER TABLE `connect_cpu` ADD CONSTRAINT `connect_cpu_fk0` FOREIGN KEY (`id_power`) REFERENCES `power`(`id`);
 
 ALTER TABLE `power_videocard` ADD CONSTRAINT `power_videocard_fk0` FOREIGN KEY (`id_power`) REFERENCES `power`(`id`);
 
@@ -265,4 +288,14 @@ ALTER TABLE `hdd` ADD CONSTRAINT `hdd_fk0` FOREIGN KEY (`id_rom`) REFERENCES `ro
 ALTER TABLE `admin` ADD CONSTRAINT `admin_fk0` FOREIGN KEY (`id_user`) REFERENCES `user`(`id`);
 
 ALTER TABLE `moderator` ADD CONSTRAINT `moderator_fk0` FOREIGN KEY (`id_user`) REFERENCES `user`(`id`);
+
+ALTER TABLE `image_cpu` ADD CONSTRAINT `image_cpu_fk0` FOREIGN KEY (`id_cpu`) REFERENCES `cpu`(`id`);
+
+ALTER TABLE `image_motherboard` ADD CONSTRAINT `image_motherboard_fk0` FOREIGN KEY (`id_mb`) REFERENCES `motherboard`(`id`);
+
+ALTER TABLE `image_power` ADD CONSTRAINT `image_power_fk0` FOREIGN KEY (`id_power`) REFERENCES `power`(`id`);
+
+ALTER TABLE `image_ram` ADD CONSTRAINT `image_ram_fk0` FOREIGN KEY (`id_ram`) REFERENCES `ram`(`id`);
+
+ALTER TABLE `image_rom` ADD CONSTRAINT `image_rom_fk0` FOREIGN KEY (`id_rom`) REFERENCES `rom`(`id`);
 

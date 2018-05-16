@@ -1,0 +1,61 @@
+﻿#title-element{
+	padding-right: 0%; 
+	padding-top: 5%;
+}
+#title-site{
+	position: relative;
+	top: 35px;
+	left: -30px;
+	color: #8B4513;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+#search-panel{
+	padding-top: 4%;
+}
+#head-right{
+	padding-top: 3%;
+	padding-left: 30%;
+}
+#search-button{
+	margin-top: -5px;
+	margin-left: -1px;
+	padding: 3px;
+}
+#button-in-system{
+	padding: 3px;
+}
+a:hover{
+	text-decoration:none;
+}
+header, header div{
+	background-color: #F2F2F2;
+}
+body{
+	background-color: #FAFAFA;
+}
+footer {
+	background-color: #1C1C1C;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 150px;
+	//flex: 0 0 auto;
+}
+.footer-map{
+	padding-top: 5px;
+}
+@media (min-width: 768px) {
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+}
+#link-about-me{
+	font-family: "Monotype Corsiva" Cursive;
+	font-size: 20px;
+	font-weight: bold;
+}
+
