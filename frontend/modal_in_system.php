@@ -15,7 +15,7 @@
 								 </div>
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="password" class="form-control" value="samplepass" />
+										<input type="password" class="form-control" placeholder="**********" />
 									 </div>
 								 </div>
 								 <div class="text-center col-xs-12">
