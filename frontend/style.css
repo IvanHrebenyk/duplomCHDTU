@@ -35,17 +35,7 @@ header, header div{
 body{
 	background-color: #FAFAFA;
 }
-footer {
-	background-color: #1C1C1C;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 150px;
-	flex: 0 0 auto;
-}
-.footer-map{
-	padding-top: 5px;
-}
+
 @media (min-width: 768px) {
   .navbar-nav.navbar-center {
     position: absolute;
@@ -84,3 +74,27 @@ li a{
 	float: right;
 	font-family: Verdana;
 }
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 10vh;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vh; /*высота футера будет зависеть от высоты экрана*/
+	background-color: #1C1C1C;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 150px;
+	flex: 0 0 auto;
+	margin-bottom: -40px;
+}
+.footer-map{
+	padding-top: 5px;
+}
+

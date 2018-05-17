@@ -1,3 +1,4 @@
-function messege_delete_info_system(){
+﻿function messege_delete_info_system(){
 	alert("Для видалення компоненту з системи, перейдіть на сторінку з повним описом компоненту та натисніть кнопку \"Видалення\"");
 }
+

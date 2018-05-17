@@ -32,9 +32,7 @@
 		<div class="col-3"></div>
 	</div>
 </div>
-<style>
 
-</style>
 <div class="container-fluid" style="margin-top: 40px;margin-bottom: 40px;">
 	<div class="row">
 		<div class="col-6">
@@ -62,6 +60,8 @@
 			</div>
 		</div>
 	</div>
+	
+	
 	
 	
 	
