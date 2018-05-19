@@ -97,4 +97,49 @@ footer {
 .footer-map{
 	padding-top: 5px;
 }
-
+.row-list-component{
+	font-family: Consolas; 
+	text-align: center;
+	margin-bottom: 70px;
+}
+.img-list-component{
+	padding: 5px;
+	margin: 5px;
+	height: 170px; 
+	width: 200px;
+}
+.title-component-list{
+	color: #585858; 
+	font-weight: bold;
+	font-size: 18px;
+}
+.hr-component-list{
+	margin: 10px;
+}
+.hover-list-component:hover{
+	background-color: #EFF5FB;
+}
+.label-input{
+	font-size: 16px; 
+	font-weight: bold; 
+	margin-bottom: -2px;
+}
+.element-component{
+	margin-bottom: 10px;
+}
+.form-add-component{
+	margin-left: 40px;
+}
+.button-add-component, .button-del-component{
+	font-size: 24px; 
+	padding: 0px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.button-del-component{
+	margin-left: 10px;
+	font-weight: bold;
+		padding-left: 13px;
+	padding-right: 13px;
+}
