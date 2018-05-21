@@ -19,7 +19,8 @@ CREATE TABLE `videocard` (
 
 CREATE TABLE `type_memory_videocard` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`generation_ddr` INT NOT NULL,
+	`title` varchar(10) NOT NULL,
+	`generation` FLOAT NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -31,7 +32,8 @@ CREATE TABLE `additional_power_videocard` (
 
 CREATE TABLE `type_memory_ram` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`generation` INT NOT NULL,
+	`generation` FLOAT NOT NULL,
+	`title` varchar(10) NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -42,6 +44,7 @@ CREATE TABLE `ram` (
 	`mhz` INT NOT NULL,
 	`type_memory` INT NOT NULL,
 	`destiny` varchar(50) NOT NULL,
+	`memory` FLOAT NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -83,7 +86,6 @@ CREATE TABLE `motherboard` (
 	`speed_lan` FLOAT NOT NULL,
 	`title_audio` varchar(70) NOT NULL,
 	`count_dvi` INT NOT NULL,
-	`count_memory_ram` INT NOT NULL,
 	`count_contact_power_cpu` INT NOT NULL,
 	`count_contact_power_mb` INT NOT NULL,
 	`max_ram_mhz` INT NOT NULL,
@@ -130,21 +132,19 @@ CREATE TABLE `power` (
 	`firm` varchar(40) NOT NULL,
 	`model` varchar(40) NOT NULL,
 	`watt` INT NOT NULL,
-	`connect_mb` INT NOT NULL,
 	`count_sata` INT NOT NULL,
 	`count_molex` INT NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `connect_motherboard` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`type_atx` varchar(10) NOT NULL,
-	PRIMARY KEY (`id`)
+	`id_power` INT NOT NULL,
+	`count_pin_atx` INT NOT NULL
 );
 
 CREATE TABLE `connect_cpu` (
 	`id_power` INT NOT NULL,
-	`count_contact` varchar(10) NOT NULL,
+	`count_contact` INT NOT NULL,
 	`count_loop` INT NOT NULL
 );
 
@@ -269,7 +269,7 @@ ALTER TABLE `usb_motherboard` ADD CONSTRAINT `usb_motherboard_fk0` FOREIGN KEY (
 
 ALTER TABLE `sata_motherboard` ADD CONSTRAINT `sata_motherboard_fk0` FOREIGN KEY (`id_motherboard`) REFERENCES `motherboard`(`id`);
 
-ALTER TABLE `power` ADD CONSTRAINT `power_fk0` FOREIGN KEY (`connect_mb`) REFERENCES `connect_motherboard`(`id`);
+ALTER TABLE `connect_motherboard` ADD CONSTRAINT `connect_motherboard_fk0` FOREIGN KEY (`id_power`) REFERENCES `power`(`id`);
 
 ALTER TABLE `connect_cpu` ADD CONSTRAINT `connect_cpu_fk0` FOREIGN KEY (`id_power`) REFERENCES `power`(`id`);
 

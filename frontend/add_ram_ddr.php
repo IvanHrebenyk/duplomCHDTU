@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-12">
 			<form action="#go_video_ddr" method="post">
-				<h3><small class="text-muted">Назва та покоління відеопам'яті:</small></h3>
+				<h3><small class="text-muted">Назва та покоління оперативної пам'яті:</small></h3>
 				<div class="form-add-component">
 					<div class="form-group element-component">
 					  <label for="title" class="text-secondary label-input">Назва:</label>

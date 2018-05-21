@@ -21,7 +21,7 @@
 	  </div>
 	</div>
 </div>
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" style="z-index: 9999">
 	<ul class="navbar-nav navbar-center">
 		  <li>
 				<a class="nav-link dropdown dropdown-toggle" data-toggle="dropdown" href="#">Внесення даних</a>
@@ -58,7 +58,6 @@
 					  <li><a tabindex="-1" class="dropdown-item" href="#">SSD</a></li>
 					  <li><a tabindex="-1" class="dropdown-item" href="#">SSD M.2</a></li>
 					  <li><a tabindex="-1" class="dropdown-item" href="#">Типи флеш пам'яті</a></li>
-					  <li><a tabindex="-1" class="dropdown-item" href="#">Розр'ядність пам'яті SSD M.2</a></li>
 					</ul>
 				  </li>
 				

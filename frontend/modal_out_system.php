@@ -1,4 +1,4 @@
-<div id="open_model_out" class="modal fade">
+<div id="open_model_out" class="modal fade" style="z-index: 999999">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-body" style="text-align: center;"><h5>Ви дійсно хочете вийти з системи?</h5></div>

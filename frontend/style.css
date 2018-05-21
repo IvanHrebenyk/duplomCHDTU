@@ -143,3 +143,23 @@ footer {
 		padding-left: 13px;
 	padding-right: 13px;
 }
+.option-filter{
+	margin-left: 13px;  
+	font-size: 16px; 
+	font-weight: bold;
+}
+.add-hide-button{
+	font-size: 18px;
+}
+.button-delete-moderator{
+	padding: 0px; 
+	font-weight: bold;
+	font-size: 20px;
+	padding-right: 10px;
+}
+.input-delete-moderator{
+	font-weight: bold; 
+	margin-right: 10px;
+	margin-left: 10px; 
+	font-family: Arial;
+}
