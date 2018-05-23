@@ -24,7 +24,7 @@
 						<a class="nav-link" href="#">Відеоадаптери</a>
 				  </li>
 				  <li>
-						<a class="nav-link" href="#">ОЗУ</a>
+						<a class="nav-link" href="#">ОЗП</a>
 				  </li>
 				  <li>
 						<a class="nav-link" href="#">ПЗП</a>

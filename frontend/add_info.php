@@ -3,7 +3,7 @@
 		<div class="col-3"></div>
 		<div class="col-6">
 			<?
-			include "add_power.php";
+			//include "add_power.php";
 			//include "add_rom_hdd.php";
 			//include "add_rom_ssd.php";
 			//include "add_rom.php";

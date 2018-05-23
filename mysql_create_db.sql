@@ -39,8 +39,8 @@ CREATE TABLE `type_memory_ram` (
 
 CREATE TABLE `ram` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`firm` varchar(50) NOT NULL,
-	`model` varchar(50) NOT NULL,
+	`firm` varchar(40) NOT NULL,
+	`model` varchar(40) NOT NULL,
 	`mhz` INT NOT NULL,
 	`type_memory` INT NOT NULL,
 	`destiny` varchar(50) NOT NULL,
@@ -105,6 +105,7 @@ CREATE TABLE `ram_motherboard` (
 
 CREATE TABLE `pci_motherboard` (
 	`id_motherboard` INT NOT NULL,
+	`title` varchar(40) NOT NULL,
 	`generation` FLOAT NOT NULL,
 	`slot` INT NOT NULL,
 	`count` INT NOT NULL
@@ -245,6 +246,11 @@ CREATE TABLE `image_rom` (
 	`path` TEXT NOT NULL
 );
 
+CREATE TABLE `image_gpu` (
+	`id_gpu` INT NOT NULL,
+	`path` TEXT NOT NULL
+);
+
 ALTER TABLE `videocard` ADD CONSTRAINT `videocard_fk0` FOREIGN KEY (`type_memory`) REFERENCES `type_memory_videocard`(`id`);
 
 ALTER TABLE `additional_power_videocard` ADD CONSTRAINT `additional_power_videocard_fk0` FOREIGN KEY (`id_videocard`) REFERENCES `videocard`(`id`);
@@ -298,4 +304,6 @@ ALTER TABLE `image_power` ADD CONSTRAINT `image_power_fk0` FOREIGN KEY (`id_powe
 ALTER TABLE `image_ram` ADD CONSTRAINT `image_ram_fk0` FOREIGN KEY (`id_ram`) REFERENCES `ram`(`id`);
 
 ALTER TABLE `image_rom` ADD CONSTRAINT `image_rom_fk0` FOREIGN KEY (`id_rom`) REFERENCES `rom`(`id`);
+
+ALTER TABLE `image_gpu` ADD CONSTRAINT `image_gpu_fk0` FOREIGN KEY (`id_gpu`) REFERENCES `videocard`(`id`);
 
