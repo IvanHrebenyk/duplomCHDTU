@@ -19,8 +19,9 @@ echo '<div class="content-info">';
 
 //include "content_one_component.php";
 //include "list_component.php";
-include "add_info.php";
+//include "add_info.php";
 //include "list_moderator.php";
+include "main_view.php";
 echo '</div>';
 ////////////// body content ////////
 echo '<footer class="fluid">';

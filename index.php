@@ -1,21 +1,4 @@
-<?
+﻿<?php
 
-require "model.php";
-require "view.php";
-require "controller.php";
-
-Controller::sendNumber(4);
-
-function main{
-
-}
-
-?>
-
-<div>
-	
-
-
-
-
-</div>
+//ini_set('display_errors', 1);
+require_once 'application/bootstrap.php';
