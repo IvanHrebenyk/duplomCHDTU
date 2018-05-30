@@ -5,8 +5,8 @@ include "head.php";
 <body>
 <?
 echo '<header>'; 
-// include "header_user.php"; 
-include "header_moderator.php"; 
+include "header_user.php"; 
+//include "header_moderator.php"; 
 //include "header_admin.php"; 
 echo '</header>';
 ////////////// body content ////////
