@@ -3,7 +3,7 @@
 
 <div class="container-fluid" style="background-color: #fff;">
 	<div class="row">
-	  <div class="col-2" align="left"><a href="#"><div id="title-element"><img src="../icon.png" width="45%" height="13%"><span id="title-site">Tcomp</span></div></a></div>
+	  <div class="col-2" align="left"><a href="../"><div id="title-element"><img src="../icon.png" width="45%" height="13%"><span id="title-site">Tcomp</span></div></a></div>
 	  <div class="col-8" align="center">
 			<nav class="navbar navbar-expand-lg" id="search-panel">
 				<ul class="navbar-nav navbar-center">

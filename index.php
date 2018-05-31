@@ -1,6 +1,9 @@
 <?
 session_start();
+include 'redirect.php';
+include 'function_db.php'; //redirect($_SERVER['HTTP_REFERER']);
 $_SESSION['user'] = 'moderator';
+include 'db.php';
 ?>
 <html>
 <?
@@ -49,7 +52,11 @@ if($controller_name==''){
 	include "main_view.php";
 }
 else if($controller_name == 'add')
-	include 'add_info.php';/*
+	include 'add_info.php';
+else if($controller_name == 'save')
+	include 'save.php';
+
+	/*
 if(!($_GET)){
 	include "main_view.php";
 }

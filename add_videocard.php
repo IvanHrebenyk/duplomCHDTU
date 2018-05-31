@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="#go_videocard" method="post">
+			<form enctype="multipart/form-data" action="/save/videocard" method="post">
 			
 				<h3><small class="text-muted">Відеоадаптер:</small></h3>
 				<div class="form-add-component">
@@ -39,7 +39,14 @@
 					<div class="form-group element-component">
 					  <label for="type_memory" class="text-secondary label-input">Тип пам'яті:</label>
 					    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="type_memory" name="type_memory" required>
-							<option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option>
+							<!-- <option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option> -->
+							<?
+								if($list_video_ddr = list_video_ddr($db)){
+									while($row = mysql_fetch_array($list_video_ddr))
+										echo '<option value="'.$row['id'].'">'.$row['title'].' '.$row['generation'].'</option>';
+								}
+
+							?>
 						</select>
 					</div>
 
