@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="#go_videocard" method="post">
+			<form enctype="multipart/form-data" action="/save/motherboard" method="post">
 			
 				<h3><small class="text-muted">Материнська плата:</small></h3>
 				<div class="form-add-component">
@@ -19,7 +19,13 @@
 					<div class="form-group element-component">
 						<label for="socket" class="text-secondary label-input">Роз'єм(Socket):</label>
 						<select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="socket" name="socket" required>
-							<option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option>
+							<!-- <option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option> -->
+						<?
+						if($list_socket = list_socket($db)){
+							while($row = mysql_fetch_array($list_socket))
+								echo '<option value="'.$row['id'].'">'.$row['title'].'</option>';
+						}
+						?>
 						</select>
 					</div>
 					
@@ -60,12 +66,12 @@
 					
 					<div class="form-group element-component">
 						<label for="count_contact_power_cpu" class="text-secondary label-input">Кількість контактів живлення CPU:</label>
-						<input type="number" class="form-control" step="2" id="count_contact_power_cpu" name="count_contact_power_cpu" placeholder="" required>
+						<input type="number" class="form-control" id="count_contact_power_cpu" name="count_contact_power_cpu" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
 						<label for="count_contact_power_mb" class="text-secondary label-input">Кількість контактів живлення материнської плати:</label>
-						<input type="number" class="form-control" step="2" id="count_contact_power_mb" name="count_contact_power_mb" placeholder="" required>
+						<input type="number" class="form-control" id="count_contact_power_mb" name="count_contact_power_mb" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
