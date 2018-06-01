@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="#go_videocard" method="post">
+			<form enctype="multipart/form-data" action="/save/cpu" method="post">
 			
 				<h3><small class="text-muted">Процесор:</small></h3>
 				<div class="form-add-component">
@@ -18,20 +18,32 @@
 
 					<div class="form-group element-component">
 					  <label for="ghz" class="text-secondary label-input">Частота(ГГц):</label>
-					  <input type="number" class="form-control" id="ghz" name="ghz" placeholder="Ghz" required>
+					  <input type="number" class="form-control" id="ghz" step="0.1" name="ghz" placeholder="Ghz" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="type_ram" class="text-secondary label-input">Тип підтримуваонї оперативної пам'яті:</label>
 					    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="type_ram" name="type_ram" required>
-							<option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option>
+							<!-- <option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option> -->
+							<?
+							if($list_ram_ddr = list_ram_ddr($db)){
+								while($row = mysql_fetch_array($list_ram_ddr))
+									echo '<option value="'.$row['id'].'">'.$row['title'].' '.$row['generation'].'</option>';
+							}
+							?>
 						</select>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="socket" class="text-secondary label-input">Роз'єм(Socket):</label>
 					    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="socket" name="socket" required>
-							<option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option>
+							<!-- <option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option> -->
+							<?
+							if($list_socket = list_socket($db)){
+								while($row = mysql_fetch_array($list_socket))
+									echo '<option value="'.$row['id'].'">'.$row['title'].'</option>';
+							}
+							?>
 						</select>
 					</div>
 					
@@ -59,9 +71,6 @@
 						<label for="core" class="text-secondary label-input">Кількість ядер:</label>
 						<input type="number" class="form-control" id="core" name="core" placeholder="" required>
 					</div>
-					
-					
-					
 					
 					
 					<div class="border border-info border-left-0 rounded element-component" id="additional_cpu_graphic" style="visibility: hidden; padding: 10px; height: 0px;">

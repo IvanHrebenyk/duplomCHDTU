@@ -25,12 +25,11 @@
 					  <label for="type_memory" class="text-secondary label-input">Тип пам'яті:</label>
 					    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="type_memory" name="type_memory" required>
 							<!-- <option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option> -->
-								<?
-								if($list_ram_ddr = list_ram_ddr($db)){
-									while($row = mysql_fetch_array($list_ram_ddr))
-										echo '<option value="'.$row['id'].'">'.$row['title'].' '.$row['generation'].'</option>';
-								}
-
+							<?
+							if($list_ram_ddr = list_ram_ddr($db)){
+								while($row = mysql_fetch_array($list_ram_ddr))
+									echo '<option value="'.$row['id'].'">'.$row['title'].' '.$row['generation'].'</option>';
+							}
 							?>
 						</select>
 					</div>
