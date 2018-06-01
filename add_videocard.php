@@ -67,7 +67,7 @@
 
 					<div class="form-group element-component">
 					  <label for="memory_bit" class="text-secondary label-input">Розрядність пам'яті:</label>
-					  <input type="number" step="128" class="form-control" id="memory_bit" name="memory_bit" placeholder="x32, x64, ..." required>
+					  <input type="number" step="2" class="form-control" id="memory_bit" name="memory_bit" placeholder="x32, x64, ..." required>
 					</div>
 
 					<div class="form-group element-component">

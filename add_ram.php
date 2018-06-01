@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="#go_videocard" method="post">
+			<form enctype="multipart/form-data" action="/save/ram" method="post">
 			
 				<h3><small class="text-muted">Оперативний запам'ятовуючий пристрій:</small></h3>
 				<div class="form-add-component">
@@ -18,13 +18,20 @@
 				
 					<div class="form-group element-component">
 					  <label for="mhz" class="text-secondary label-input">Частота пам'яті(МГц):</label>
-					  <input type="text" class="form-control" id="mhz" name="mhz" placeholder="Mhz" required>
+					  <input type="number" class="form-control" id="mhz" name="mhz" placeholder="Mhz" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="type_memory" class="text-secondary label-input">Тип пам'яті:</label>
 					    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="type_memory" name="type_memory" required>
-							<option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option>
+							<!-- <option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option> -->
+								<?
+								if($list_ram_ddr = list_ram_ddr($db)){
+									while($row = mysql_fetch_array($list_ram_ddr))
+										echo '<option value="'.$row['id'].'">'.$row['title'].' '.$row['generation'].'</option>';
+								}
+
+							?>
 						</select>
 					</div>
 					
@@ -36,8 +43,8 @@
 					<div class="form-group element-component">
 					  <label for="destiny" class="text-secondary label-input">Призначення пам'яті:</label>
 					    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="destiny" name="destiny" required>
-							<option selected value="ПК">ПК</option>
-							<option selected value="Ноутбук">Ноутбук</option>
+							<option selected value="pc">ПК</option>
+							<option selected value="laptop">Ноутбук</option>
 						</select>
 					</div>
 					

@@ -4,12 +4,12 @@ function resize($file, $type = 1, $rotate = null, $quality = null)
 	global $tmp_path;
 
 	// Ограничение по ширине в пикселях
-	$max_thumb_size = 200;
-	$max_size = 600;
+	$max_thumb_size = 400;
+	$max_size = 800;
 
 	// Качество изображения по умолчанию
 	if ($quality == null)
-		$quality = 75;
+		$quality = 85;
 
 	// Cоздаём исходное изображение на основе исходного файла
 	$type_file = '.jpg';
