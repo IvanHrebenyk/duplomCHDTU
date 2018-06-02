@@ -1,22 +1,4 @@
 <?
-/*echo '<br>'.$_POST['firm'];
-echo '<br>'.$_POST['model'];
-echo '<br>'.$_POST['memory'];
-echo '<br>'.$_POST['technology'];
-echo '<br>'.$_POST['formfactor']; //float
-echo '<br>'.$_POST['power']; //float
-echo '<br>'.$_POST['weight'];
-echo '<br>'.$_POST['long'];
-echo '<br>'.$_POST['width'];
-echo '<br>'.$_POST['thickness'];
-echo '<br>'.$_POST['title'];
-echo '<br>'.$_POST['generation'];
-echo '<br>'.$_POST['rpm'];
-echo '<br>'.$_POST['buffer'];
-echo '<br>'.$_POST['speed_transfer'];
-echo '<br>'.$_POST['noise'];
-echo '<br>'.$_FILES['image_uppload']['name'];*/
-
 if($_FILES['image_uppload']['name']){ 
 	require_once 'uppload_image.php';
 	$img = $_FILES['image_uppload'];

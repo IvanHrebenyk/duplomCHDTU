@@ -2,7 +2,7 @@
 session_start();
 include 'redirect.php';
 include 'function_db.php'; //redirect($_SERVER['HTTP_REFERER']);
-$_SESSION['user'] = 'moderator';
+$_SESSION['user'] = 'admin';
 include 'db.php';
 ?>
 <html>

@@ -21,7 +21,7 @@
 <nav class="navbar navbar-expand-lg">
 	<ul class="navbar-nav navbar-center">
 		  <li>
-				<a class="nav-link" href="#">Реєстрація модератора</a>
+				<a class="nav-link" href="/add/moderator">Реєстрація модератора</a>
 		  </li>
 		  <li>
 				<a class="nav-link" href="#">Видалення модератора</a>

@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="#go_videocard" method="post">
+			<form enctype="multipart/form-data" action="/save/rom_ssd" method="post">
 			
 				<h3><small class="text-muted">SSD M.2:</small></h3>
 				<div class="form-add-component">
@@ -37,17 +37,17 @@
 					
 					<div class="form-group element-component">
 					  <label for="long" class="text-secondary label-input">Довжина(Мм):</label>
-					  <input type="number" class="form-control" id="long" name="long" placeholder="" required>
+					  <input type="number" step="0.01" class="form-control" id="long" name="long" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="width" class="text-secondary label-input">Ширина(Мм):</label>
-					  <input type="number" class="form-control" id="width" name="width" placeholder="" required>
+					  <input type="number" step="0.01" class="form-control" id="width" name="width" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="thickness" class="text-secondary label-input">Товщина(Мм):</label>
-					  <input type="number" class="form-control" id="thickness" name="thickness" placeholder="" required>
+					  <input type="number" step="0.01" class="form-control" id="thickness" name="thickness" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
@@ -85,7 +85,12 @@
 					<div class="form-group element-component">
 						<label for="type_flash_memory" class="text-secondary label-input">Тип flash-пам'яті:</label>
 						<select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="type_flash_memory" name="type_flash_memory" required>
-							<option selected value="1<? //ДДР4 - тип і покоління пам'яті ?>">Comments</option>
+							<?
+							if($list_flash_memory_type = list_flash_memory_type($db)){
+								while($row = mysql_fetch_array($list_flash_memory_type))
+									echo '<option value="'.$row['id'].'">'.$row['title'].'</option>';
+							}
+							?>
 						</select>
 					</div>
 					

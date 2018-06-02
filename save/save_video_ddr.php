@@ -1,6 +1,4 @@
 <?
-/*echo $_POST['title'];
-echo $_POST['generation'];*/
 
 $q = 'select count(*) as "count" from type_memory_videocard where title="'.$_POST['title'].'" AND generation='.$_POST['generation'];
 if($q = mysql_query($q, $db)){
@@ -11,5 +9,7 @@ if($c['count'] == 0){
 	if($q = mysql_query($q, $db))
 		redirect($_SERVER['HTTP_REFERER']);
 }
+else 
+	redirect($_SERVER['HTTP_REFERER']);
 
 ?>

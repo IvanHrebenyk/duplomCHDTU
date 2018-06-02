@@ -9,5 +9,7 @@ if($c['count'] == 0){
 	if($q = mysql_query($q, $db))
 		redirect($_SERVER['HTTP_REFERER']);
 }
+else 
+	redirect($_SERVER['HTTP_REFERER']);
 
 ?>
