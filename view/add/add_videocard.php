@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="/save/videocard" method="post">
+			<form enctype="multipart/form-data" action="/model/save/videocard" method="post">
 			
 				<h3><small class="text-muted">Відеоадаптер:</small></h3>
 				<div class="form-add-component">

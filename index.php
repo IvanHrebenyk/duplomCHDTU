@@ -1,8 +1,11 @@
 <?
+//session_unset();
 session_start();
+// unset($_SESSION['user']);
+include "router.php";
 include 'redirect.php';
 include 'function_db.php'; //redirect($_SERVER['HTTP_REFERER']);
-$_SESSION['user'] = 'admin';
+//$_SESSION['user'] = '';
 include 'db.php';
 ?>
 <html>
@@ -12,9 +15,9 @@ include "head.php";
 <body>
 <?
 echo '<header>'; 
-if($_SESSION['user'] == 'admin')
+if($_SESSION['user'] == 'admin' && ($controller_name == 'add' || $controller_name == 'remove'))
 	include "view/header/header_admin.php"; 
-else if($_SESSION['user'] == 'moderator')
+else if($_SESSION['user'] == 'moderator' && ($controller_name == 'add' || $controller_name == 'remove'))
 	include "view/header/header_moderator.php"; 
 else 
 	include "view/header/header_user.php"; 
@@ -25,49 +28,21 @@ echo '</header>';
 
 <?
 echo '<div class="content-info">';
-///////////////////////////////
-	$controller_name = '';
-	$action_name = '';
-	$addition_action_name = '';
-	
-	$routes = explode('/', $_SERVER['REQUEST_URI']);
-
-	// получаем имя контроллера
-	if ( !empty($routes[1]) )
-	{	
-		$controller_name = $routes[1];
-	}
-	
-	// получаем имя экшена
-	if ( !empty($routes[2]) )
-	{
-		$action_name = $routes[2];
-	}
-	if ( !empty($routes[3]) )
-	{
-		$addition_action_name = $routes[3];
-	}
-///////////////////////////////
 if($controller_name==''){
 	include "view/main_view.php";
 }
 else if($controller_name == 'add')
 	include 'view/add/add_info.php';
 else if($controller_name == 'save')
-	include 'save/save.php';
+	include 'model/save/save.php';
+else if($controller_name == 'remove')
+	include 'view/remove/remove.php';
+else if($controller_name == 'removing')
+	include 'model/removing/removing.php';
+else if($controller_name == 'authorize' || $controller_name == 'out')
+	include 'model/user/'.$controller_name.'.php';
 
-	/*
-if(!($_GET)){
-	include "main_view.php";
-}
-else if($_GET['add'])
-	include 'add_info.php';*/
 
-//include "content_one_component.php";
-//include "list_component.php";
-//if()
-//include "add_info.php";
-//include "list_moderator.php";
 
 echo '</div>';
 ////////////// body content ////////

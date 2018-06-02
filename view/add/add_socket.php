@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form action="/save/socket" method="post">
+			<form action="/model/save/socket" method="post">
 				<h3><small class="text-muted">Назва роз'єму(socket):</small></h3>
 				<div class="form-add-component">
 					<div class="form-group element-component">

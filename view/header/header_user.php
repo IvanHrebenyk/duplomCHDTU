@@ -4,7 +4,19 @@
 	  <div class="col-8" align="center"><div id="search-panel"><? include "search.php"; ?></div></div>
 	  <div class="col-2">
 		<div id="head-right">
-			<button class="btn" type="button" data-toggle="modal" data-target="#open_model_in" id="button-in-system">Увійти в систему</button><?include "modal_in_system.php";?>
+			<?
+			if(!$_SESSION['user']){
+				?>
+				<button class="btn" type="button" data-toggle="modal" data-target="#open_model_in" id="button-in-system">Увійти в систему</button><?include "modal_in_system.php";?>
+				<?
+			}
+			else if($_SESSION['user'] == 'moderator' || $_SESSION['user'] == 'admin'){
+				?>
+				<a href="/add"><button class="btn btn-default button-system" type="button">Панель</button></a>
+				<button class="btn btn-default button-system" type="button" data-toggle="modal" data-target="#open_model_out" id="button-in-system">Вийти</button><?include "modal_out_system.php";?>
+				<?
+			}
+			?>
 		</div>
 	  </div>
 	</div>

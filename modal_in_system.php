@@ -7,19 +7,19 @@
 				 <div class="container">
 					 <div class="row">
 						 <div class="col-md-12 col-md-offset-3 well">
-							 <form class="form">
+							 <form class="form" method="post" action="/authorize">
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="login" class="form-control" placeholder="Ваш логін" />
+										<input type="login" class="form-control" name="login" placeholder="Ваш логін" />
 									 </div>
 								 </div>
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="password" class="form-control" placeholder="**********" />
+										<input type="password" class="form-control" name="password" placeholder="**********" />
 									 </div>
 								 </div>
 								 <div class="text-center col-xs-12">
-									<input type="button" class="btn btn-default" value="Увійти" />
+									<input type="submit" class="btn btn-default" value="Увійти" />
 									<button class="btn btn-default" type="button" data-dismiss="modal">Відміна</button>
 								 </div>
 							 </form>

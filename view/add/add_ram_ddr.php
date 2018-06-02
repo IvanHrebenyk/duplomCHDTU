@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form action="/save/ram_ddr" method="post">
+			<form action="/model/save/ram_ddr" method="post">
 				<h3><small class="text-muted">Назва та покоління оперативної пам'яті:</small></h3>
 				<div class="form-add-component">
 					<div class="form-group element-component">

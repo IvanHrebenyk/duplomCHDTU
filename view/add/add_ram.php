@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="/save/ram" method="post">
+			<form enctype="multipart/form-data" action="/model/save/ram" method="post">
 			
 				<h3><small class="text-muted">Оперативний запам'ятовуючий пристрій:</small></h3>
 				<div class="form-add-component">
