@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="#go_videocard" method="post">
+			<form enctype="multipart/form-data" action="/save/rom_hdd" method="post">
 			
 				<h3><small class="text-muted">HDD:</small></h3>
 				<div class="form-add-component">
@@ -43,17 +43,17 @@
 					
 					<div class="form-group element-component">
 					  <label for="long" class="text-secondary label-input">Довжина(Мм):</label>
-					  <input type="number" class="form-control" id="long" name="long" placeholder="" required>
+					  <input type="number" step="0.1" class="form-control" id="long" name="long" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="width" class="text-secondary label-input">Ширина(Мм):</label>
-					  <input type="number" class="form-control" id="width" name="width" placeholder="" required>
+					  <input type="number" step="0.01" class="form-control" id="width" name="width" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="thickness" class="text-secondary label-input">Товщина(Мм):</label>
-					  <input type="number" class="form-control" id="thickness" name="thickness" placeholder="" required>
+					  <input type="number" step="0.01" class="form-control" id="thickness" name="thickness" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
@@ -63,7 +63,7 @@
 					
 					<div class="form-group element-component">
 					  <label for="generation" class="text-secondary label-input">Покоління інтерфейсу:</label>
-					  <input type="number" class="form-control" id="generation" name="generation" placeholder="" required>
+					  <input type="number" step="0.1" class="form-control" id="generation" name="generation" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">

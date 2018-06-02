@@ -34,4 +34,16 @@ function list_socket($db){
 	else
 		return false;
 }
+
+function list_flash_memory_type($db){
+	$q = 'select count(*) as "count" from type_flash_memory';
+	if($q = mysql_query($q, $db))
+		$c = mysql_fetch_array($q);
+	if($c > 0){
+		$q = 'select * from type_flash_memory';
+		return mysql_query($q, $db);
+	}
+	else
+		return false;
+}
 ?>

@@ -18,7 +18,7 @@
 			//include "add_moderator.php";
 			// include "switch.php";
 			if($action_name)
-				include $controller_name.'_'.$action_name.'.php';
+				include 'view/'.$controller_name.'/'.$controller_name.'_'.$action_name.'.php';
 			?>
 		</div>
 		<div class="col-3"></div>

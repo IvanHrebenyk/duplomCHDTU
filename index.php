@@ -13,11 +13,11 @@ include "head.php";
 <?
 echo '<header>'; 
 if($_SESSION['user'] == 'admin')
-	include "header_admin.php"; 
+	include "view/header/header_admin.php"; 
 else if($_SESSION['user'] == 'moderator')
-	include "header_moderator.php"; 
+	include "view/header/header_moderator.php"; 
 else 
-	include "header_user.php"; 
+	include "view/header/header_user.php"; 
 echo '</header>';
 ////////////// body content ////////
 ?>
@@ -49,12 +49,12 @@ echo '<div class="content-info">';
 	}
 ///////////////////////////////
 if($controller_name==''){
-	include "main_view.php";
+	include "view/main_view.php";
 }
 else if($controller_name == 'add')
-	include 'add_info.php';
+	include 'view/add/add_info.php';
 else if($controller_name == 'save')
-	include 'save.php';
+	include 'save/save.php';
 
 	/*
 if(!($_GET)){
