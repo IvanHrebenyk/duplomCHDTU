@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="/model/save/power" method="post">
+			<form enctype="multipart/form-data" action="/save/power" method="post">
 			
 				<h3><small class="text-muted">Блок живлення:</small></h3>
 				<div class="form-add-component">

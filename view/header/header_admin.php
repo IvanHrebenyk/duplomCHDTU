@@ -5,7 +5,7 @@
 			<nav class="navbar navbar-expand-lg" id="search-panel">
 				<ul class="navbar-nav navbar-center">
 					  <li class="active">
-							<a class="nav-link" href="#" style="position: relative; top: 30px;">Головна </a>
+							<a class="nav-link" href="../" style="position: relative; top: 30px;">Головна </a>
 					  </li>
 				</ul>
 			</nav>﻿

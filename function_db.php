@@ -28,7 +28,7 @@ function list_socket($db){
 	if($q = mysql_query($q, $db))
 		$c = mysql_fetch_array($q);
 	if($c['count'] > 0){
-		$q = 'select * from socket';
+		$q = 'select * from socket order by title asc';
 		return mysql_query($q, $db);
 	}
 	else

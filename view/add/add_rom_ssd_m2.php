@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="/model/save/rom_ssd" method="post">
+			<form enctype="multipart/form-data" action="/save/rom_ssd" method="post">
 			
 				<h3><small class="text-muted">SSD M.2:</small></h3>
 				<div class="form-add-component">
@@ -60,10 +60,10 @@
 					  <input type="number" class="form-control" id="generation" name="generation" placeholder="" required>
 					</div>
 					
-					<div class="form-group element-component">
-					  <label for="x_level" class="text-secondary label-input">Розрядність шини передачі даних PCI:</label>
-					  <input type="number" step="2" class="form-control" id="x_level" name="x_level" placeholder="x4, x8, x16, ..." required>
-					</div>
+		<!-- 			<div class="form-group element-component">
+		  <label for="x_level" class="text-secondary label-input">Розрядність шини передачі даних PCI:</label>
+		  <input type="number" step="2" class="form-control" id="x_level" name="x_level" placeholder="x4, x8, x16, ..." required>
+		</div> -->
 					
 					<div class="form-group element-component">
 					  <label for="read" class="text-secondary label-input">Швидкість зчитування даних(МБ/с):</label>

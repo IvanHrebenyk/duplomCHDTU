@@ -8,7 +8,7 @@
 			<nav class="navbar navbar-expand-lg" id="search-panel">
 				<ul class="navbar-nav navbar-center">
 					  <li class="active">
-							<a class="nav-link" href="#" style="position: relative; top: 30px;">Головна </a>
+							<a class="nav-link" href="../" style="position: relative; top: 30px;">Головна </a>
 					  </li>
 				</ul>
 			</nav>﻿
@@ -44,7 +44,7 @@
 				  </li>
 				
 				  <li class="dropdown-submenu">
-					<a class="menudown dropdown-item dropdown-toggle" tabindex="-1" href="#">ОЗУ</a>
+					<a class="menudown dropdown-item dropdown-toggle" tabindex="-1" href="#">ОЗП</a>
 					<ul class="dropdown-menu"  id="m3">
 					  <li><a tabindex="-1" class="dropdown-item" href="/add/ram">Новий запис</a></li>
 					  <li><a tabindex="-1" class="dropdown-item" href="/add/ram_ddr">Тип пам'яті</a></li>

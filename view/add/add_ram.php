@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="/model/save/ram" method="post">
+			<form enctype="multipart/form-data" action="/save/ram" method="post">
 			
 				<h3><small class="text-muted">Оперативний запам'ятовуючий пристрій:</small></h3>
 				<div class="form-add-component">
@@ -43,7 +43,7 @@
 					  <label for="destiny" class="text-secondary label-input">Призначення пам'яті:</label>
 					    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="destiny" name="destiny" required>
 							<option selected value="pc">ПК</option>
-							<option selected value="laptop">Ноутбук</option>
+							<option value="laptop">Ноутбук</option>
 						</select>
 					</div>
 					

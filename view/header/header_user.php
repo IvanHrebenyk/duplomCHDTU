@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-default" >
 			<ul class="navbar-nav navbar-center">
 				  <li class="active">
-						<a class="nav-link" href="#">Головна </a>
+						<a class="nav-link" href="../">Головна </a>
 				  </li>
 				  <li>
 						<a class="nav-link" href="#">Процесори</a>

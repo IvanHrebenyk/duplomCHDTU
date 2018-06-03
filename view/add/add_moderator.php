@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form action="/model/save/moderator" method="post">
+			<form action="/save/moderator" method="post">
 				<h3><small class="text-muted">Реєстрація нового модератора:</small></h3>
 				<div class="form-add-component">
 					<div class="form-group element-component">

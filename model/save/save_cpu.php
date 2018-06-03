@@ -17,7 +17,6 @@ if($q = mysql_query($q, $db)){
 				firm="'.$_POST['firm'].'" 
 				and model="'.$_POST['model'].'" 
 				and socket='.$_POST['socket'];
-				echo $search;
 }
 if($search){
 	$q = mysql_query($search, $db);

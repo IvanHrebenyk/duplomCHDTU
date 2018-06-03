@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="/model/save/rom_hdd" method="post">
+			<form enctype="multipart/form-data" action="/save/rom_hdd" method="post">
 			
 				<h3><small class="text-muted">HDD:</small></h3>
 				<div class="form-add-component">

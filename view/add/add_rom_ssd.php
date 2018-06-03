@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<form enctype="multipart/form-data" action="/model/save/rom_ssd" method="post">
+			<form enctype="multipart/form-data" action="/save/rom_ssd" method="post">
 			
 				<h3><small class="text-muted">SSD:</small></h3>
 				<div class="form-add-component">
@@ -38,22 +38,22 @@
 					
 					<div class="form-group element-component">
 					  <label for="weight" class="text-secondary label-input">Вага(Грами):</label>
-					  <input type="number" class="form-control" id="weight" name="weight" placeholder="" required>
+					  <input type="number" class="form-control" id="weight" step='0.01' name="weight" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="long" class="text-secondary label-input">Довжина(Мм):</label>
-					  <input type="number" class="form-control" id="long" name="long" placeholder="" required>
+					  <input type="number" class="form-control" id="long" step='0.01' name="long" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="width" class="text-secondary label-input">Ширина(Мм):</label>
-					  <input type="number" class="form-control" id="width" name="width" placeholder="" required>
+					  <input type="number" class="form-control" id="width" step='0.01' name="width" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
 					  <label for="thickness" class="text-secondary label-input">Товщина(Мм):</label>
-					  <input type="number" class="form-control" id="thickness" name="thickness" placeholder="" required>
+					  <input type="number" class="form-control" id="thickness"step='0.01'  name="thickness" placeholder="" required>
 					</div>
 					
 					<div class="form-group element-component">
