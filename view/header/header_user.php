@@ -27,22 +27,22 @@
 						<a class="nav-link" href="../">Головна </a>
 				  </li>
 				  <li>
-						<a class="nav-link" href="#">Процесори</a>
+						<a class="nav-link" href="/cpu/">Процесори</a>
 				  </li>
 				  <li>
-						<a class="nav-link" href="#">Материнські плати</a>
+						<a class="nav-link" href="/motherboard/">Материнські плати</a>
 				  </li>
 				  <li>
-						<a class="nav-link" href="#">Відеоадаптери</a>
+						<a class="nav-link" href="/gpu/">Відеоадаптери</a>
 				  </li>
 				  <li>
-						<a class="nav-link" href="#">ОЗП</a>
+						<a class="nav-link" href="/ram/">ОЗП</a>
 				  </li>
 				  <li>
-						<a class="nav-link" href="#">ПЗП</a>
+						<a class="nav-link" href="/rom/">ПЗП</a>
 				  </li>
 				  <li>
-						<a class="nav-link" href="#">БЖ</a>
+						<a class="nav-link" href="/power/">БЖ</a>
 				  </li>
 			</ul>
 </nav>﻿

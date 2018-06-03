@@ -8,10 +8,16 @@
 	</div>
 	<div class="row">
 		<div class="col-3" style="">
-			<?include "filter.php";?>
+			<?
+			if($isset)
+				include "template_filter.php";
+		?>
 		</div>
 		<div class="col-9" style="">
-			<?include "view_list_component.php";?>
+			<?
+			if($isset) 
+				include "template_list_component.php";
+			?>
 		</div>
 	</div>
 </div>

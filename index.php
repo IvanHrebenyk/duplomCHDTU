@@ -42,6 +42,10 @@ else if($controller_name == 'removing')
 else if($controller_name == 'authorize' || $controller_name == 'out')
 	include 'model/user/'.$controller_name.'.php';
 
+else if($controller_name == 'cpu' || $controller_name == 'motherboard' || $controller_name == 'gpu' || 
+		$controller_name == 'ram' || $controller_name == 'rom' || $controller_name == 'power' )
+	include 'controller/category/category_'.$controller_name.'.php';
+
 
 
 echo '</div>';
