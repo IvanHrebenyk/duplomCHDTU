@@ -335,3 +335,10 @@ function del_dynamic_field_connect_gpu(step, div){
 	div.innerHTML = add_button_div;
 
 }
+
+$(document).keypress(function (e) {
+    if (e.which == 13) {
+            document.getElementById("search-button").click();
+            return false;
+    }
+});

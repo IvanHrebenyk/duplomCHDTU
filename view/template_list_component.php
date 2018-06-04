@@ -1,8 +1,4 @@
-<!-- $list['field'] -->
 <div class="container" style=" margin-left: 20px;">
-	
-<!-- add block start -->	
-<!-- //id, firm, model, image_cpu.path  -->
 <? 
 $i = 0;
 while($row = mysql_fetch_array($view_list)){ 
@@ -25,21 +21,25 @@ if(($i % 3) != 0) echo '</div>';
 ?>
 <!-- add block finish -->	
 <?
-if($isset > $limit){
+if($isset > $limit && $view_pagination){
 	?>
 	<div class="row" style="font-family: Consolas; text-align: center; margin-bottom: 10px; margin-top: -40px;">
 		<div class="col-7"></div>
 		<div class="col-3" style="margin-left: -235px;">
 			<ul class="pagination">
 				<?
-				if($page == 0 || $page == 1)
+					$query_string = '&'.str_ireplace('page='.$_GET['page'], "", $_SERVER['QUERY_STRING']);
+					 $query_string = str_ireplace('&&', "&", $query_string);
+				if($page == 0 || $page == 1){
+					$page = 1;
 					$prev_page = 'disabled';
+				}
 				else
-					$prev_link = '/'.$controller_name.'/?page='.($page-1);
+					$prev_link = '/'.$controller_name.'/?page='.($page-1).$query_string;
 				if($page * $limit > $isset)
 					$next_page = 'disabled';
 				else
-					$next_link = '/'.$controller_name.'/?page='.($page+1);
+					$next_link = '/'.$controller_name.'/?page='.($page+1).$query_string;
 				?>
 			  <li class="page-item <?echo $prev_page;?>"><a class="page-link" href="<?echo $prev_link;?>">Попередня</a></li>
 			  <li class="page-item <?echo $next_page;?>"><a class="page-link" href="<?echo $next_link;?>">Наступна</a></li>

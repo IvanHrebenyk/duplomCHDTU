@@ -8,36 +8,36 @@
 						 <div class="col-md-12 col-md-offset-3 well">
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="submit" class="form-control btn btn-primary" value="Процесори" name="cpu" />
+										<input type="submit" class="form-control btn btn-primary" value="Процесори" onclick="searchForm('cpu/');"/>
 									 </div>
 								 </div>
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="submit" class="form-control btn btn-primary" value="Материнські плати" name="motherboard" />
+										<input type="submit" class="form-control btn btn-primary" value="Материнські плати" onclick="searchForm('motherboard/');"/>
 									 </div>
 								 </div>
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="submit" class="form-control btn btn-primary" value="Відеоадаптери" name="gpu" />
+										<input type="submit" class="form-control btn btn-primary" value="Відеоадаптери"/>
 									 </div>
 								 </div>
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="submit" class="form-control btn btn-primary" value="Оперативні запам'ятовуючі пристрої" name="ram" />
+										<input type="submit" class="form-control btn btn-primary" value="Оперативні запам'ятовуючі пристрої" onclick="searchForm('ram/');"/>
 									 </div>
 								 </div>
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="submit" class="form-control btn btn-primary" value="Постійні запам'ятовуючі пристрої" name="rom" />
+										<input type="submit" class="form-control btn btn-primary" value="Постійні запам'ятовуючі пристрої" onclick="searchForm('rom/');"/>
 									 </div>
 								 </div>
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="submit" class="form-control btn btn-primary" value="Блоки живлення" name="power" />
+										<input type="submit" class="form-control btn btn-primary" value="Блоки живлення" onclick="searchForm('power/');"/>
 									 </div>
 								 </div>
 								 <div class="text-center col-xs-12">
-									<button class="btn btn-default" style="margin-bottom: 10px;" type="button" data-dismiss="modal">Відміна</button>
+									<button class="btn btn-default" style="margin-bottom: 10px;" id="close-search" type="button" data-dismiss="modal">Відміна</button>
 								 </div>
 						 </div>
 					 </div>
@@ -46,3 +46,12 @@
 		</div>
 	</div>
 </div>
+<script>
+	<?
+	echo 'function searchForm(category){
+		document.getElementById("searchInfo").action = "http://'.$_SERVER['SERVER_NAME'].'/" + category;
+		return true;
+
+	}';
+	?>
+</script>
