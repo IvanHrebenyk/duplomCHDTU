@@ -13,7 +13,7 @@
 	  <div class="col-2">
 		<div id="head-right">
 			<a href="/add"><button class="btn btn-default button-system" type="button">Панель</button></a>
-			<button class="btn btn-default button-system" type="button" data-toggle="modal" data-target="#open_model_out" id="button-in-system">Вийти</button><?include "modal_out_system.php";?>
+			<button class="btn btn-default button-system" type="button" data-toggle="modal" data-target="#open_model_out" id="button-in-system">Вийти</button><?include "view/modal/modal_out_system.php";?>
 		</div>
 	  </div>
 	</div>

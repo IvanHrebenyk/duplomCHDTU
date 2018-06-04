@@ -2,15 +2,15 @@
 //session_unset();
 session_start();
 // unset($_SESSION['user']);
-include "router.php";
-include 'redirect.php';
-include 'function_db.php'; //redirect($_SERVER['HTTP_REFERER']);
+include "controller/router.php";
+include 'model/redirect.php';
+include 'model/function_db.php'; //redirect($_SERVER['HTTP_REFERER']);
 //$_SESSION['user'] = '';
-include 'db.php';
+include 'model/db.php';
 ?>
 <html>
 <?
-include "head.php";
+include "view/head.php";
 ?>
 <body>
 <?
@@ -52,7 +52,7 @@ echo '</div>';
 ////////////// body content ////////
 echo '<footer class="fluid">';
 //echo '<div class="navbar-fixed-bottom row-fluid"><div class="navbar-inner"><div class="container" >';
-	include "footer.php";
+	include "view/footer.php";
  //echo '</div></div></div>';
  echo '</footer>';
 ?>

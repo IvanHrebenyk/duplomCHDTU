@@ -18,7 +18,7 @@
 								 </div>
 								 <div class="col-xs-12">
 									 <div class="form-group">
-										<input type="submit" class="form-control btn btn-primary" value="Відеоадаптери"/>
+										<input type="submit" class="form-control btn btn-primary" value="Відеоадаптери" onclick="searchForm('gpu/');"/>
 									 </div>
 								 </div>
 								 <div class="col-xs-12">

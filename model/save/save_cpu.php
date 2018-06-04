@@ -1,6 +1,6 @@
 <?
 if($_FILES['image_uppload']['name']){ 
-	require_once 'uppload_image.php';
+	require_once 'modal/uppload_image.php';
 	$img = $_FILES['image_uppload'];
 	if(!($src_image = uppload_image($img)))
 		redirect($_SERVER['HTTP_REFERER']);
