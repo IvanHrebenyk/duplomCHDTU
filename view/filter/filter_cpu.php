@@ -106,7 +106,7 @@
 
 	<div class="row row-filter">
 		<div class="col-12">
-			<h3><small class="text-muted">Кількість ядер</small></h3>
+			<h3><small class="text-muted">Графіка</small></h3>
 			<?
 				$checked = '';
 				if($_GET['graphic'])
