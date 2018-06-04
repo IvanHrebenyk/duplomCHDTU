@@ -1,9 +1,3 @@
-<?
-// $list_firm
-//$list_ram
-//$list_socket_cpu
-//$list_core_cpu
-?>
 <form action="" class="text-secondary option-filter">
 
 	<div class="row row-filter">
