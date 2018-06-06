@@ -1,10 +1,10 @@
 <div class="container" style="bacground-color: #fafafa;">
 	<div class="row">
 		<div class="col-2">
-			<button class="btn btn-default btn-xs go-back" style="padding: 0px; float: left;"><a href="#" class="btn btn-default"  >Назад до списку</a></button>
+			<button class="btn btn-default btn-xs go-back" style="padding: 0px; float: left;"><a href="<?echo $_SERVER['HTTP_REFERER'];?>" class="btn btn-default"  >Назад до списку</a></button>
 		</div>
 		<div class="col-8" align="center">
-			<button class="btn btn-default btn-xs go-back" style="margin-bottom: 20px; padding: 0px;"><a href="#іфі" class="btn btn-default" >Категорія</a></button>
+			<button class="btn btn-default btn-xs go-back" style="margin-bottom: 20px; padding: 0px;"><a href="/<?echo $controller_name;?>" class="btn btn-default" >Категорія</a></button>
 		
 		</div>
 		<div class="col-2">

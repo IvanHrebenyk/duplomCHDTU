@@ -69,9 +69,9 @@
 		<div class="col-6">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-6" ><h6>Вживана потужність(Вт):</h6></div>
+					<div class="col-6" ><h6>Вживана потужність:</h6></div>
 					<div class="col-6" >
-						<span class="option-component-label"><? echo $row['power']; ?></span>
+						<span class="option-component-label"><? echo $row['power'].' Вт'; ?></span>
 					</div>
 				</div>
 				<hr>
@@ -125,7 +125,7 @@
 				<div class="row">
 					<div class="col-6" ><h6>Об'єм кеш-пам'яті:</h6></div>
 					<div class="col-6" >
-						<span class="option-component-label"><? echo $row['cache']; ?></span>
+						<span class="option-component-label"><? echo $row['cache'].'Mb'; ?></span>
 					</div>
 				</div>
 				<hr>
