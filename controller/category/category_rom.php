@@ -54,7 +54,12 @@ $view_pagination = true;
 										interface_memory.generation'.$interface_generation.' group by '.$table.'.id';
 			 //echo $select.$query;
 
-			if(isset_rom_filter_category($db, $select.$query, $page, $limit)){
+			$have_filter = false;
+
+			if($_GET['firm'] || $_GET['memory'] || $_GET['technology'] || $_GET['interface'])
+				$have_filter = true;
+
+			if(isset_rom_filter_category($db, $select.$query, $page, $limit) && $have_filter){echo 'filter';
 				$select = 'SELECT *, image_rom.path as image ';
 				$view_list = list_rom_view_filter_category($db, $select.$query, $page, $limit);
 			}

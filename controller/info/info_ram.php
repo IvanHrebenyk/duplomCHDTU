@@ -4,8 +4,8 @@ $id = $addition_action_name;
 ?>
 <?
 
-if(isset_videocardID($db, $id)){
-	$info = info_videocard($db, $id);
+if(isset_ramID($db, $id)){
+	$info = info_ram($db, $id);
 }
 ?>
 

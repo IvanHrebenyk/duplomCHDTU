@@ -44,6 +44,7 @@ function list_rom_view_category($db, $page, $limit){
 	else 
 		$start = 0;
 	$q = 'SELECT id, firm, model, image_rom.path as image FROM rom left join image_rom on rom.id=image_rom.id_rom limit '.$start.', '.$limit;
+	// echo $q;
 	return mysql_query($q, $db);
 }
 
