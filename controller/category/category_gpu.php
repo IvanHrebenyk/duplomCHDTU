@@ -48,7 +48,7 @@ $view_pagination = true;
 										firm'.$firm.' and
 										'.$contact_SQL.' 
 										videocard.slot'.$pci_slot.' and 
-										videocard.generation_pci'.$pci_generation;
+										videocard.generation_pci'.$pci_generation.' group by '.$table.'.id';
 			// echo $select.$query;
 
 			if(isset_videocard_filter_category($db, $select.$query, $page, $limit)){

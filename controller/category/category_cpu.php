@@ -1,6 +1,6 @@
 <?
 include 'model/category/'.$controller_name.'.php';
-$view_pagination = trua;
+$view_pagination = true;
 	$isset = isset_cpu($db);
 	if($isset){ 
 		if(!($page = $_GET['page']))

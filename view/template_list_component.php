@@ -9,7 +9,7 @@ while($row = mysql_fetch_array($view_list)){
 		 $img = 'noimage.png';
 ?>
 <div class="col-3 border border-bottom-0 border-primary rounded-top hover-list-component">
-	<a href="<? echo '/'.$controller_name.'/'.$row['id'].'/'; ?>"><img src="../<? echo $img; ?>" class="border border-secondary rounded border-top-0 img-list-component">
+	<a href="<? echo '/'.$controller_name.'/info/'.$row['id'].'/'.$row['firm'].'-'.$row['model'].'.html'; ?>"><img src="../<? echo $img; ?>" class="border border-secondary rounded border-top-0 img-list-component">
 	<h6 class="title-component-list"><? echo $row['firm'].' '.$row['model']; ?></h6></a>
 	<hr class="hr-component-list">
 </div>	

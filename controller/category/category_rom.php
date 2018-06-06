@@ -51,7 +51,7 @@ $view_pagination = true;
 										memory'.$memory.' and
 										technology'.$technology.' and
 										interface_memory.title'.$interface_title.' and 
-										interface_memory.generation'.$interface_generation;
+										interface_memory.generation'.$interface_generation.' group by '.$table.'.id';
 			 //echo $select.$query;
 
 			if(isset_rom_filter_category($db, $select.$query, $page, $limit)){

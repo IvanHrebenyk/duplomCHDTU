@@ -5,7 +5,6 @@ session_start();
 include "controller/router.php";
 include 'model/redirect.php';
 include 'model/function_db.php'; //redirect($_SERVER['HTTP_REFERER']);
-//$_SESSION['user'] = '';
 include 'model/db.php';
 ?>
 <html>
@@ -24,10 +23,14 @@ else
 echo '</header>';
 ////////////// body content ////////
 ?>
-<script src="../script.js" ></script>
+<script src="../../../../script.js" ></script>
 
 <?
 echo '<div class="content-info">';
+
+$category_list_name = 'cpu motherboard gpu ram rom power';
+$have_category = strripos(' '.$category_list_name, $controller_name);
+
 if($controller_name==''){
 	include "view/main_view.php";
 }
@@ -42,10 +45,12 @@ else if($controller_name == 'removing')
 else if($controller_name == 'authorize' || $controller_name == 'out')
 	include 'model/user/'.$controller_name.'.php';
 
-else if($controller_name == 'cpu' || $controller_name == 'motherboard' || $controller_name == 'gpu' || 
-		$controller_name == 'ram' || $controller_name == 'rom' || $controller_name == 'power' )
-	include 'controller/category/category_'.$controller_name.'.php';
+else if($have_category && $action_name && $addition_action_name)
+	include 'controller/'.$action_name.'/'.$action_name.'_'.$controller_name.'.php';
 
+else if($have_category)
+	include 'controller/category/category_'.$controller_name.'.php';
+	
 
 
 echo '</div>';

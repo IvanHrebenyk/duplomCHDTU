@@ -1,0 +1,5 @@
+cpu: videocard, motherboard
+videocard: motherboard, cpu, power
+motherboard: ram, rom, cpu, videocard, power
+ram: motherboard
+rom: motherboard

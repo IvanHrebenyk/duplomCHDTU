@@ -37,7 +37,7 @@ $view_pagination = true;
 			$query = 'FROM '.$from.' WHERE 
 										firm'.$firm.' and
 										memory'.$memory.' and
-										type_memory'.$type_ram;
+										type_memory'.$type_ram.' group by '.$table.'.id';
 			 //echo $select.$query;
 
 			if(isset_ram_filter_category($db, $select.$query, $page, $limit)){

@@ -69,7 +69,7 @@ $view_pagination = trua;
 										'.$count_type_ddr.' 
 										pci_motherboard.generation'.$pci_generation.' and 
 										pci_motherboard.slot'.$pci_slot.' and 
-										sata_motherboard.generation'.$sata;
+										sata_motherboard.generation'.$sata.' group by '.$table.'.id';
 			// echo $select.$query;
 
 			if(isset_motherboard_filter_category($db, $select.$query, $page, $limit)){
