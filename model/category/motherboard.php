@@ -40,7 +40,7 @@ function search_motherboard($db, $search, $page, $limit){
 
 function list_motherboard_view_category($db, $page, $limit){
 	if($page != 0)
-		$start = $page * $limit - $limit;
+		$start = ($page * $limit) - $limit ;
 	else 
 		$start = 0;
 	$q = 'SELECT id, firm, model, image_motherboard.path as image FROM motherboard left join image_motherboard on motherboard.id=image_motherboard.id_mb limit '.$start.', '.$limit;

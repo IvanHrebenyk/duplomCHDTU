@@ -64,3 +64,21 @@ echo '<footer class="fluid">';
 </body>
 </html>
 
+<?
+	if(!$title_component){
+		if(!$controller_name) $title_component = 'Дипломна робота';
+		else if($controller_name == 'cpu') $title_component = 'Процесори';
+		else if($controller_name == 'gpu') $title_component = 'Відеокарти';
+		else if($controller_name == 'motherboard') $title_component = 'Материнські плати';
+		else if($controller_name == 'power') $title_component = 'Блоки живлення';
+		else if($controller_name == 'ram') $title_component = 'ОЗП';
+		else if($controller_name == 'rom') $title_component = 'Накопичувачі';
+		else if($controller_name == 'add') $title_component = 'Внесення даних';
+		else if($controller_name == 'remove') $title_component = 'Видалення даних';
+	}
+?>
+<script type="text/javascript">
+	document.title = "<?
+echo $title_component ;
+	?>"
+</script>

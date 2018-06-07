@@ -50,8 +50,12 @@ $view_pagination = true;
 										videocard.slot'.$pci_slot.' and 
 										videocard.generation_pci'.$pci_generation.' group by '.$table.'.id';
 			// echo $select.$query;
+			$have_filter = false;
 
-			if(isset_videocard_filter_category($db, $select.$query, $page, $limit)){
+			if($_GET['firm'] || $_GET['pci_ex'] || $_GET['contact'])
+				$have_filter = true;
+
+			if((isset_videocard_filter_category($db, $select.$query, $page, $limit)) && $have_filter){
 				$select = 'SELECT *, image_gpu.path as image ';
 				$view_list = list_videocard_view_filter_category($db, $select.$query, $page, $limit);
 			}

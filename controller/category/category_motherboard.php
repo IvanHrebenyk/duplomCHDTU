@@ -1,6 +1,6 @@
 <?
 include 'model/category/'.$controller_name.'.php';
-$view_pagination = trua;
+$view_pagination = true;
 	$isset = isset_motherboard($db);
 	if($isset){ 
 		if(!($page = $_GET['page']))
@@ -72,7 +72,12 @@ $view_pagination = trua;
 										sata_motherboard.generation'.$sata.' group by '.$table.'.id';
 			// echo $select.$query;
 
-			if(isset_motherboard_filter_category($db, $select.$query, $page, $limit)){
+			$have_filter = false;
+
+			if($_GET['firm'] || $_GET['socket'] || $_GET['contact_cpu'] || $_GET['contact_mb'] || $_GET['type_ram'] || $_GET['pci_ex'] || $_GET['sata'])
+				$have_filter = true;
+
+			if((isset_motherboard_filter_category($db, $select.$query, $page, $limit)) && $have_filter){
 				$select = 'SELECT *, image_motherboard.path as image ';
 				$view_list = list_motherboard_view_filter_category($db, $select.$query, $page, $limit);
 			}

@@ -1,9 +1,10 @@
 <?
-if($_FILES['image_uppload']['name']){ 
-	require_once 'modal/uppload_image.php';
+if($_FILES['image_uppload']['name']){  //echo '<script>alert("qwedrfty");</script>';
+	require_once 'model/uppload_image.php';
 	$img = $_FILES['image_uppload'];
 	if(!($src_image = uppload_image($img)))
 		redirect($_SERVER['HTTP_REFERER']);
+
 }
 // result $src_image;
 
@@ -31,7 +32,7 @@ if($q = mysql_query($q, $db)){
 if($search){
 	$q = mysql_query($search, $db);
 	$r = mysql_fetch_array($q);
-	if($r['id'] && $src_image){
+	if($r['id'] && $src_image){ 
 		$q = 'insert into image_gpu values('.$r['id'].', "'.$src_image.'")';
 		mysql_query($q, $db);
 	}

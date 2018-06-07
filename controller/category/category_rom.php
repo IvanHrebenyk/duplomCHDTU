@@ -59,7 +59,7 @@ $view_pagination = true;
 			if($_GET['firm'] || $_GET['memory'] || $_GET['technology'] || $_GET['interface'])
 				$have_filter = true;
 
-			if(isset_rom_filter_category($db, $select.$query, $page, $limit) && $have_filter){echo 'filter';
+			if(isset_rom_filter_category($db, $select.$query, $page, $limit) && $have_filter){
 				$select = 'SELECT *, image_rom.path as image ';
 				$view_list = list_rom_view_filter_category($db, $select.$query, $page, $limit);
 			}

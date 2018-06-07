@@ -41,7 +41,12 @@ $view_pagination = true;
 			$select = 'select count(*) as count ';
 			$query = 'FROM '.$from.' WHERE firm'.$firm.' and type_ram'.$type_ram.' and ghz'.$ghz.' and socket'.$socket.' and core'.$core;
 
-			if(isset_cpu_filter_category($db, $select.$query, $page, $limit)){
+			$have_filter = false;
+
+			if($_GET['firm'] || $_GET['type_ram'] || $_GET['ghz'] || $_GET['socket'] || $_GET['core'] || $_GET['graphic'])
+				$have_filter = true;
+
+			if((isset_cpu_filter_category($db, $select.$query, $page, $limit)) && $have_filter){
 				$select = 'SELECT *, image_cpu.path as image ';
 				$view_list = list_cpu_view_filter_category($db, $select.$query, $page, $limit);
 			}

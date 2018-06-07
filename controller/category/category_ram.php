@@ -40,7 +40,12 @@ $view_pagination = true;
 										type_memory'.$type_ram.' group by '.$table.'.id';
 			 //echo $select.$query;
 
-			if(isset_ram_filter_category($db, $select.$query, $page, $limit)){
+			$have_filter = false;
+
+			if($_GET['firm'] || $_GET['memory'] || $_GET['technology'] || $_GET['interface'])
+				$have_filter = true;
+
+			if((isset_ram_filter_category($db, $select.$query, $page, $limit)) && $have_filter){
 				$select = 'SELECT *, image_ram.path as image ';
 				$view_list = list_ram_view_filter_category($db, $select.$query, $page, $limit);
 			}

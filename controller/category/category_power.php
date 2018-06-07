@@ -72,8 +72,12 @@ $view_pagination = true;
 		    power.count_molex '.$count_molex.$where_pin_cpu.$where_pin_gpu.$where_pin_mb.' GROUP by power.id';
 
 			// echo $select.$query;
+			$have_filter = false;
 
-			if(isset_power_filter_category($db, $select.$query, $page, $limit)){ 
+			if($_GET['firm'] || $_GET['pin_mb'] || $_GET['pin_cpu'] || $_GET['pin_gpu'] || $_GET['sata'] || $_GET['molex'])
+				$have_filter = true;
+
+			if((isset_power_filter_category($db, $select.$query, $page, $limit)) && $have_filter){ 
 				$select = 'SELECT *, image_power.path as image ';
 				$view_list = list_power_view_filter_category($db, $select.$query, $page, $limit);
 			}
