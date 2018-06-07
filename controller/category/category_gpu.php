@@ -1,5 +1,69 @@
 <?
 include 'model/category/'.$controller_name.'.php';
+
+
+if($_POST['cpu_number']){
+	include 'view/button_dead_complette.php';
+
+	$_SESSION['m'] = '<form action="/'.$controller_name.'" method="post">Підібрані відеокарти до процесору <b>
+	<a href="/cpu/info/'.$_POST['cpu_number'].'/'.$_POST['cpu_name'].'.html">'.$_POST['cpu_name'].'</a>
+	</b>'.$button.'</form>';
+	
+	$_SESSION['q'] = 'SELECT videocard.*, image_gpu.path as image 
+
+			FROM motherboard 
+				inner join pci_motherboard on motherboard.id = pci_motherboard.id_motherboard 
+				inner join videocard on videocard.generation_pci = pci_motherboard.generation
+				inner join cpu on cpu.socket = motherboard.socket
+				left join image_gpu on image_gpu.id_gpu=videocard.id
+				
+			where cpu.id = '.$_POST['cpu_number'].'
+
+			group by videocard.id';
+}
+else if($_POST['motherboard_number']){
+	include 'view/button_dead_complette.php';
+
+	$_SESSION['m'] = '<form action="/'.$controller_name.'" method="post">Підібрані відеокарти до материнської плати <b>
+	<a href="/motherboard/info/'.$_POST['motherboard_number'].'/'.$_POST['motherboard_name'].'.html">'.$_POST['motherboard_name'].'</a>
+	</b>'.$button.'</form>';
+	
+	$_SESSION['q'] = 'SELECT videocard.*, image_gpu.path as image
+
+			FROM motherboard 
+				inner join pci_motherboard on motherboard.id = pci_motherboard.id_motherboard 
+				inner join videocard on videocard.generation_pci = pci_motherboard.generation
+				left join image_gpu on image_gpu.id_gpu=videocard.id
+				
+			where motherboard.id = '.$_POST['motherboard_number'].'
+
+			GROUP by videocard.id';
+}
+else if($_POST['power_number']){
+	include 'view/button_dead_complette.php';
+
+	$_SESSION['m'] = '<form action="/'.$controller_name.'" method="post">Підібрані відеокарти до блоку живлення <b>
+	<a href="/power/info/'.$_POST['power_number'].'/'.$_POST['power_name'].'.html">'.$_POST['power_name'].'</a>
+	</b>'.$button.'</form>';
+	
+	$_SESSION['q'] = 'select videocard.*, image_gpu.path as image
+	from 
+		additional_power_videocard
+		inner join videocard on videocard.id=additional_power_videocard.id_videocard
+         left join image_gpu on image_gpu.id_gpu=videocard.id,
+		power 
+		inner join power_videocard on power_videocard.id_power = power.id
+       
+	   
+	WHERE 
+		(additional_power_videocard.count_need_loop*additional_power_videocard.count_contact_loop) <= 
+			(power_videocard.count_contact*power_videocard.count_loop) 
+		 AND power.id = '.$_POST['power_number'].'
+		 
+	GROUP BY videocard.id';
+
+}
+
 $view_pagination = true;
 	$isset = isset_videocard($db);
 	if($isset){ 
@@ -62,9 +126,15 @@ $view_pagination = true;
 			else $message_filter = 'По заданим фільтрам нічого не знайдено.';
 		}
 			if(!$view_list){
-				$view_list = list_videocard_view_category($db, $page, $limit);
+				if($_SESSION['q'])
+					$view_list = list_complette($db, $_SESSION['q'], $page, $limit);
+				else
+					$view_list = list_videocard_view_category($db, $page, $limit);
 			}
-		$message_user_list = 'Відеокарти. '.$message_filter;
+		if($_SESSION['m']) 
+			$message_user_list = $_SESSION['m'];
+		else
+			$message_user_list = 'Відеокарти. '.$message_filter;
 		// filter
 		$list_firm = list_firm_videocard($db);
 		$list_pci_videocard = list_pci_videocard($db);

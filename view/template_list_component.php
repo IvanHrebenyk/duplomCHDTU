@@ -25,7 +25,7 @@ if($isset > $limit && $view_pagination){
 	?>
 	<div class="row" style="font-family: Consolas; text-align: center; margin-bottom: 10px; margin-top: -40px;">
 		<div class="col-7"></div>
-		<div class="col-3" style="margin-left: -235px;">
+		<div class="col-3" style="margin-left: -235px; margin-top: 30px;">
 			<ul class="pagination">
 				<?
 					$query_string = '&'.str_ireplace('page='.$_GET['page'], "", $_SERVER['QUERY_STRING']);

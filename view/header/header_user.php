@@ -33,7 +33,7 @@
 						<a class="nav-link" href="/motherboard/">Материнські плати</a>
 				  </li>
 				  <li>
-						<a class="nav-link" href="/gpu/">Відеоадаптери</a>
+						<a class="nav-link" href="/gpu/">Відеокарти</a>
 				  </li>
 				  <li>
 						<a class="nav-link" href="/ram/">ОЗП</a>

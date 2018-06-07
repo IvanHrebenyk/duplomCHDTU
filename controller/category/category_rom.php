@@ -1,5 +1,27 @@
 <?
 include 'model/category/'.$controller_name.'.php';
+
+if($_POST['motherboard_number']){
+	include 'view/button_dead_complette.php';
+
+	$_SESSION['m'] = '<form action="/'.$controller_name.'" method="post">Підібрані ПЗП до материнської плати <b>
+	<a href="/motherboard/info/'.$_POST['motherboard_number'].'/'.$_POST['motherboard_name'].'.html">'.$_POST['motherboard_name'].'</a>
+	</b>'.$button.'</form>';
+	
+	$_SESSION['q'] = 'select rom.*, image_rom.path as image
+					from 
+						sata_motherboard inner JOIN motherboard on motherboard.id = sata_motherboard.id_motherboard
+						inner join interface_memory on interface_memory.generation = sata_motherboard.generation
+						INNER JOIN rom on rom.id = interface_memory.id_rom
+						left join image_rom on image_rom.id_rom = rom.id
+					 
+					WHERE
+						interface_memory.title like "%SATA%" and motherboard.id = 15
+
+					GROUP BY rom.id';
+}
+
+
 $view_pagination = true;
 	$isset = isset_rom($db);
 	if($isset){ 
@@ -66,9 +88,15 @@ $view_pagination = true;
 			else $message_filter = 'По заданим фільтрам нічого не знайдено.';
 		}
 			if(!$view_list){
-				$view_list = list_rom_view_category($db, $page, $limit);
+				if($_SESSION['q'])
+					$view_list = list_complette($db, $_SESSION['q'], $page, $limit);
+				else
+					$view_list = list_rom_view_category($db, $page, $limit);
 			}
-		$message_user_list = 'Постійні накопичувачі. '.$message_filter;
+		if($_SESSION['m']) 
+			$message_user_list = $_SESSION['m'];
+		else
+			$message_user_list = 'Постійні накопичувачі. '.$message_filter;
 		// filter
 		$list_firm = list_firm_rom($db);
 		$list_memory_rom = list_memory_rom($db);

@@ -75,4 +75,13 @@ function list_memory_ram($db){
 	return mysql_query($q, $db);
 }
 
+
+function list_complette($db, $q, $page, $limit){
+	if($page != 0)
+		$start = $page * $limit - $limit;
+	else 
+		$start = 0;
+	$q = $q.' limit '.$start.', '.$limit;
+	return mysql_query($q, $db);
+}
 ?>

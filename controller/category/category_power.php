@@ -1,5 +1,47 @@
 <?
 include 'model/category/'.$controller_name.'.php';
+
+if($_POST['motherboard_number']){
+	include 'view/button_dead_complette.php';
+
+	$_SESSION['m'] = '<form action="/'.$controller_name.'" method="post">Підібрані блоки живлення до материнської плати <b>
+	<a href="/motherboard/info/'.$_POST['motherboard_number'].'/'.$_POST['motherboard_name'].'.html">'.$_POST['motherboard_name'].'</a>
+	</b>'.$button.'</form>';
+	
+	$_SESSION['q'] = 'select power.*, image_power.path as image
+
+			from 
+				connect_motherboard inner join connect_cpu on connect_motherboard.id_power = connect_cpu.id_power
+				 INNER join motherboard on (connect_cpu.count_contact*connect_cpu.count_loop) >= motherboard.count_contact_power_cpu
+				 INNER join power on connect_motherboard.id_power = power.id
+				 left join image_power on image_power.id_power = power.id
+
+			WHERE motherboard.id = '.$_POST['motherboard_number'].' 
+			group by power.id';
+}
+else if($_POST['gpu_number']){
+	include 'view/button_dead_complette.php';
+
+	$_SESSION['m'] = '<form action="/'.$controller_name.'" method="post">Підібрані блоки живлення до відеокарти <b>
+	<a href="/gpu/info/'.$_POST['gpu_number'].'/'.$_POST['gpu_name'].'.html">'.$_POST['gpu_name'].'</a>
+	</b>'.$button.'</form>';
+	
+	$_SESSION['q'] = 'select power.*, image_power.path as image
+	from 
+		additional_power_videocard
+		inner join videocard on videocard.id=additional_power_videocard.id_videocard,
+		power 
+		inner join power_videocard on power_videocard.id_power = power.id
+				 left join image_power on image_power.id_power = power.id
+	   
+	WHERE 
+		(additional_power_videocard.count_need_loop*additional_power_videocard.count_contact_loop) <= 
+			(power_videocard.count_contact*power_videocard.count_loop) 
+		 AND videocard.id = '.$_POST['gpu_number'].'
+		 
+	GROUP BY power.id';
+}
+
 $view_pagination = true;
 	$isset = isset_power($db);
 	if($isset){ 
@@ -84,9 +126,15 @@ $view_pagination = true;
 			else $message_filter = 'По заданим фільтрам нічого не знайдено.';
 		}
 			if(!$view_list){
+				if($_SESSION['q'])
+					$view_list = list_complette($db, $_SESSION['q'], $page, $limit);
+				else
 				$view_list = list_power_view_category($db, $page, $limit);
 			}
-		$message_user_list = 'Блоки живлення. '.$message_filter;
+		if($_SESSION['m']) 
+			$message_user_list = $_SESSION['m'];
+		else
+			$message_user_list = 'Блоки живлення. '.$message_filter;
 		// filter
 		$list_firm = list_firm_power($db);
 		$list_connect_mb_power = list_connect_mb_power($db);

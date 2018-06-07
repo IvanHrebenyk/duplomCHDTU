@@ -6,6 +6,14 @@ include "controller/router.php";
 include 'model/redirect.php';
 include 'model/function_db.php'; //redirect($_SERVER['HTTP_REFERER']);
 include 'model/db.php';
+if(isset($_POST['dead_complette'])){
+	unset($_SESSION['m']);
+	unset($_SESSION['q']);
+}
+else if(isset($_GET) && !$_GET['page']){
+	unset($_SESSION['m']);
+	unset($_SESSION['q']);
+}
 ?>
 <html>
 <?

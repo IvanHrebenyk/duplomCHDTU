@@ -168,3 +168,19 @@ footer {
 .row-filter{
 	padding-bottom: 10px;
 }
+.btn-complette{
+	width: 100%;
+	text-align: center;
+	color: blue;
+}
+.dead-complette{
+	margin-left: 0px; 
+	color: red; 
+	font-weight: bold; 
+	margin-top: -5px; 
+	font-size: 20px; 
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 8px;
+	padding-right: 8px;
+}

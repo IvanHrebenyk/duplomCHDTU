@@ -186,6 +186,23 @@ Videocard:
 		 
 	GROUP BY videocard.id
 	
+	
+					select videocard.*, image_gpu.id_gpu as image
+					from 
+						additional_power_videocard
+						inner join videocard on videocard.id=additional_power_videocard.id_videocard
+						 left join image_gpu on image_gpu.id_gpu=videocard.id,
+						power 
+						inner join power_videocard on power_videocard.id_power = power.id
+					   
+					   
+					WHERE 
+						(additional_power_videocard.count_need_loop*additional_power_videocard.count_contact_loop) <= 
+							(power_videocard.count_contact*power_videocard.count_loop) 
+						 AND power.id = 10
+						 
+					GROUP BY videocard.id
+	
 MotherBoard: 
 
 			select motherboard.*
