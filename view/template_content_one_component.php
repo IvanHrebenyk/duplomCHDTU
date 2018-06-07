@@ -5,9 +5,12 @@
 		</div>
 <?
 $row = mysql_fetch_array($info);
+$img_path_have = false;
 $img_path = '../../../../noimage.png';
-if($row['image'])
+if($row['image']){
 	$img_path = '../../../../'.$row['image'];
+	$img_path_have = true;
+}
 ?>
 		<? if($_SESSION['user'] != 'admin' && $_SESSION['user'] != 'moderator') { ?>
 		<div class="col-8" align="center"></div><div class="col-2" style="margin-left: -100px;">
@@ -40,9 +43,9 @@ if($row['image'])
 	<div class="row">
 		<div class="col-4"></div>
 		<div class="col-4" align="center">
-			<a href="<?echo $img_path; ?>">
+			<? if($img_path_have)  {?><a href="<?echo $img_path; ?>"><? } ?>
 				<img src="<?echo $img_path; ?>" class="img-thumbnail rounded " title="<? echo $row['firm'].' '.$row['model']; ?>" width="330px">
-			</a>
+			<? if($img_path_have)  {?></a><? } ?>
 		</div>
 	</div>
 </div>
@@ -60,34 +63,7 @@ if($row['image'])
 </div>
 
 <div class="container" style="margin-top: 40px;margin-bottom: 40px;">
-<!-- <div class="row">
-	<div class="col-6">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-6" ><h6>Характеристика 1:</h6></div>
-				<div class="col-6" >
-					<span class="option-component-label">Показник 1;</span>
-				</div>
-			</div>
-			<hr>
-		</div>
-	</div>
-	
-	
-	<div class="col-6">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-6" ><h6>Характеристика 2:</h6></div>
-				<div class="col-6" >
-					<span class="option-component-label">Показник 2;</span>
-				</div>
-			</div>
-			<hr>
-		</div>
-	</div>
-</div> -->
 
-	
 <? include 'view/info_component/info_component_'.$controller_name.'.php'; ?>
 	
 	

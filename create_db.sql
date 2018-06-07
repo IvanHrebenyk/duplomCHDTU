@@ -6,13 +6,12 @@ CREATE TABLE `videocard` (
 	`core_mhz` INT NOT NULL,
 	`count_cooler` INT NOT NULL,
 	`memory` INT NOT NULL,
-	`memory_ddr` INT NOT NULL,
 	`count_hdmi` INT NOT NULL,
 	`count_vga` INT NOT NULL,
 	`count_display_port` INT NOT NULL,
 	`memory_bit` INT NOT NULL,
 	`type_memory` INT NOT NULL,
-	`generation_pci` FLOAT NOT NULL,
+	`generation_pci` double NOT NULL,
 	`slot` INT NOT NULL,
 	PRIMARY KEY (`id`)
 );
@@ -20,7 +19,7 @@ CREATE TABLE `videocard` (
 CREATE TABLE `type_memory_videocard` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`title` varchar(10) NOT NULL,
-	`generation` FLOAT NOT NULL,
+	`generation` double NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -32,7 +31,7 @@ CREATE TABLE `additional_power_videocard` (
 
 CREATE TABLE `type_memory_ram` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`generation` FLOAT NOT NULL,
+	`generation` double NOT NULL,
 	`title` varchar(10) NOT NULL,
 	PRIMARY KEY (`id`)
 );
@@ -44,7 +43,7 @@ CREATE TABLE `ram` (
 	`mhz` INT NOT NULL,
 	`type_memory` INT NOT NULL,
 	`destiny` varchar(50) NOT NULL,
-	`memory` FLOAT NOT NULL,
+	`memory` double NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -52,12 +51,12 @@ CREATE TABLE `cpu` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`firm` varchar(40) NOT NULL,
 	`model` varchar(40) NOT NULL,
-	`ghz` FLOAT NOT NULL,
+	`ghz` double NOT NULL,
 	`type_ram` INT NOT NULL,
 	`socket` INT NOT NULL,
 	`power` INT NOT NULL,
-	`command_set` varchar(10) NOT NULL,
-	`cache` FLOAT NOT NULL,
+	`command_set` INT NOT NULL,
+	`cache` double NOT NULL,
 	`level_cache` INT NOT NULL,
 	`core` INT NOT NULL,
 	PRIMARY KEY (`id`)
@@ -83,7 +82,7 @@ CREATE TABLE `motherboard` (
 	`count_vga` INT NOT NULL,
 	`count_hdmi` INT NOT NULL,
 	`count_audio` INT NOT NULL,
-	`speed_lan` FLOAT NOT NULL,
+	`speed_lan` double NOT NULL,
 	`title_audio` varchar(70) NOT NULL,
 	`count_dvi` INT NOT NULL,
 	`count_contact_power_cpu` INT NOT NULL,
@@ -105,8 +104,7 @@ CREATE TABLE `ram_motherboard` (
 
 CREATE TABLE `pci_motherboard` (
 	`id_motherboard` INT NOT NULL,
-	`title` varchar(40) NOT NULL,
-	`generation` FLOAT NOT NULL,
+	`generation` double NOT NULL,
 	`slot` INT NOT NULL,
 	`count` INT NOT NULL
 );
@@ -118,13 +116,13 @@ CREATE TABLE `wifi_motherboard` (
 
 CREATE TABLE `usb_motherboard` (
 	`id_motherboard` INT NOT NULL,
-	`generation` FLOAT NOT NULL,
+	`generation` double NOT NULL,
 	`count` INT NOT NULL
 );
 
 CREATE TABLE `sata_motherboard` (
 	`id_motherboard` INT NOT NULL,
-	`generation` FLOAT NOT NULL,
+	`generation` double NOT NULL,
 	`count` INT NOT NULL
 );
 
@@ -174,13 +172,8 @@ CREATE TABLE `interface_memory` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`id_rom` INT NOT NULL,
 	`title` varchar(10) NOT NULL,
-	`generation` FLOAT NOT NULL,
+	`generation` double NOT NULL,
 	PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `pci_x_rom` (
-	`id_interface_memory` INT NOT NULL,
-	`x_level` INT NOT NULL
 );
 
 CREATE TABLE `type_flash_memory` (
@@ -191,8 +184,8 @@ CREATE TABLE `type_flash_memory` (
 
 CREATE TABLE `ssd` (
 	`id_rom` INT NOT NULL,
-	`read` FLOAT NOT NULL,
-	`write` FLOAT NOT NULL,
+	`read` double NOT NULL,
+	`write` double NOT NULL,
 	`dead_time` varchar(20) NOT NULL,
 	`type` varchar(5) NOT NULL,
 	`type_flash_memory` INT NOT NULL
@@ -201,8 +194,8 @@ CREATE TABLE `ssd` (
 CREATE TABLE `hdd` (
 	`id_rom` INT NOT NULL,
 	`rpm` INT NOT NULL,
-	`buffer` FLOAT NOT NULL,
-	`noise` FLOAT NOT NULL,
+	`buffer` double NOT NULL,
+	`noise` double NOT NULL,
 	`speed_transfer` varchar(20) NOT NULL
 );
 
@@ -282,8 +275,6 @@ ALTER TABLE `connect_cpu` ADD CONSTRAINT `connect_cpu_fk0` FOREIGN KEY (`id_powe
 ALTER TABLE `power_videocard` ADD CONSTRAINT `power_videocard_fk0` FOREIGN KEY (`id_power`) REFERENCES `power`(`id`);
 
 ALTER TABLE `interface_memory` ADD CONSTRAINT `interface_memory_fk0` FOREIGN KEY (`id_rom`) REFERENCES `rom`(`id`);
-
-ALTER TABLE `pci_x_rom` ADD CONSTRAINT `pci_x_rom_fk0` FOREIGN KEY (`id_interface_memory`) REFERENCES `interface_memory`(`id`);
 
 ALTER TABLE `ssd` ADD CONSTRAINT `ssd_fk0` FOREIGN KEY (`id_rom`) REFERENCES `rom`(`id`);
 

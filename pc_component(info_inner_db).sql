@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Чрв 03 2018 р., 17:55
+-- Час створення: Чрв 07 2018 р., 20:49
 -- Версія сервера: 5.6.37
 -- Версія PHP: 5.6.31
 
@@ -140,12 +140,12 @@ CREATE TABLE `cpu` (
   `id` int(11) NOT NULL,
   `firm` varchar(40) NOT NULL,
   `model` varchar(40) NOT NULL,
-  `ghz` float NOT NULL,
+  `ghz` double NOT NULL,
   `type_ram` int(11) NOT NULL,
   `socket` int(11) NOT NULL,
   `power` int(11) NOT NULL,
   `command_set` int(11) NOT NULL,
-  `cache` float NOT NULL,
+  `cache` double NOT NULL,
   `level_cache` int(11) NOT NULL,
   `core` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -162,7 +162,7 @@ INSERT INTO `cpu` (`id`, `firm`, `model`, `ghz`, `type_ram`, `socket`, `power`, 
 (12, 'AMD', 'Ryzen 3 2200G', 3.5, 4, 3, 65, 64, 4, 3, 4),
 (13, 'AMD', 'A10-9700', 3.5, 4, 3, 65, 64, 1, 2, 4),
 (14, 'Intel', 'G5400', 3.7, 4, 2, 54, 64, 4, 3, 2),
-(15, 'AMD', 'Athlon X4 860K', 3.7, 1, 7, 95, 64, 4, 2, 4),
+(15, 'AMD', 'Athlon X4 860K', 3.7, 3, 7, 95, 64, 4, 2, 4),
 (16, 'AMD', 'Richland A4-6300', 3.7, 3, 8, 65, 64, 1, 2, 2),
 (17, 'Intel', 'i5-5675C', 3.1, 4, 9, 65, 64, 4, 3, 4);
 
@@ -200,8 +200,8 @@ INSERT INTO `cpu_graphic` (`id_cpu`, `title_graphic`) VALUES
 CREATE TABLE `hdd` (
   `id_rom` int(11) NOT NULL,
   `rpm` int(11) NOT NULL,
-  `buffer` float NOT NULL,
-  `noise` float NOT NULL,
+  `buffer` double NOT NULL,
+  `noise` double NOT NULL,
   `speed_transfer` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -387,7 +387,7 @@ CREATE TABLE `interface_memory` (
   `id` int(11) NOT NULL,
   `id_rom` int(11) NOT NULL,
   `title` varchar(10) NOT NULL,
-  `generation` float NOT NULL
+  `generation` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -434,7 +434,7 @@ CREATE TABLE `motherboard` (
   `count_vga` int(11) NOT NULL,
   `count_hdmi` int(11) NOT NULL,
   `count_audio` int(11) NOT NULL,
-  `speed_lan` float NOT NULL,
+  `speed_lan` double NOT NULL,
   `title_audio` varchar(70) NOT NULL,
   `count_dvi` int(11) NOT NULL,
   `count_contact_power_cpu` int(11) NOT NULL,
@@ -469,7 +469,7 @@ INSERT INTO `motherboard` (`id`, `firm`, `model`, `socket`, `count_ide`, `count_
 
 CREATE TABLE `pci_motherboard` (
   `id_motherboard` int(11) NOT NULL,
-  `generation` float NOT NULL,
+  `generation` double NOT NULL,
   `slot` int(11) NOT NULL,
   `count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -588,7 +588,7 @@ CREATE TABLE `ram` (
   `mhz` int(11) NOT NULL,
   `type_memory` int(11) NOT NULL,
   `destiny` varchar(50) NOT NULL,
-  `memory` float NOT NULL
+  `memory` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -684,7 +684,7 @@ INSERT INTO `rom` (`id`, `firm`, `model`, `memory`, `technology`, `formfactor`, 
 
 CREATE TABLE `sata_motherboard` (
   `id_motherboard` int(11) NOT NULL,
-  `generation` float NOT NULL,
+  `generation` double NOT NULL,
   `count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -739,8 +739,8 @@ INSERT INTO `socket` (`id`, `title`) VALUES
 
 CREATE TABLE `ssd` (
   `id_rom` int(11) NOT NULL,
-  `read` float NOT NULL,
-  `write` float NOT NULL,
+  `read` double NOT NULL,
+  `write` double NOT NULL,
   `dead_time` varchar(20) NOT NULL,
   `type` varchar(5) NOT NULL,
   `type_flash_memory` int(11) NOT NULL
@@ -789,7 +789,7 @@ INSERT INTO `type_flash_memory` (`id`, `title`) VALUES
 
 CREATE TABLE `type_memory_ram` (
   `id` int(11) NOT NULL,
-  `generation` float NOT NULL,
+  `generation` double NOT NULL,
   `title` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -812,7 +812,7 @@ INSERT INTO `type_memory_ram` (`id`, `generation`, `title`) VALUES
 CREATE TABLE `type_memory_videocard` (
   `id` int(11) NOT NULL,
   `title` varchar(10) NOT NULL,
-  `generation` float NOT NULL
+  `generation` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -833,7 +833,7 @@ INSERT INTO `type_memory_videocard` (`id`, `title`, `generation`) VALUES
 
 CREATE TABLE `usb_motherboard` (
   `id_motherboard` int(11) NOT NULL,
-  `generation` float NOT NULL,
+  `generation` double NOT NULL,
   `count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -901,7 +901,7 @@ CREATE TABLE `videocard` (
   `count_display_port` int(11) NOT NULL,
   `memory_bit` int(11) NOT NULL,
   `type_memory` int(11) NOT NULL,
-  `generation_pci` float NOT NULL,
+  `generation_pci` double NOT NULL,
   `slot` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1159,32 +1159,32 @@ ALTER TABLE `wifi_motherboard`
 -- AUTO_INCREMENT для таблиці `cpu`
 --
 ALTER TABLE `cpu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT для таблиці `interface_memory`
 --
 ALTER TABLE `interface_memory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT для таблиці `motherboard`
 --
 ALTER TABLE `motherboard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT для таблиці `power`
 --
 ALTER TABLE `power`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT для таблиці `ram`
 --
 ALTER TABLE `ram`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT для таблиці `rom`
 --
 ALTER TABLE `rom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT для таблиці `socket`
 --
@@ -1209,12 +1209,12 @@ ALTER TABLE `type_memory_videocard`
 -- AUTO_INCREMENT для таблиці `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблиці `videocard`
 --
 ALTER TABLE `videocard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- Обмеження зовнішнього ключа збережених таблиць
 --

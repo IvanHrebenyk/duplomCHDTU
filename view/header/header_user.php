@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background-color: #fff;">
 	<div class="row">
-	  <div class="col-2" align="left"><a href="../../../../../../"><div id="title-element"><img src="../../../../../icon.png" width="45%" height="13%"><span id="title-site">Tcomp</span></div></a></div>
+	  <div class="col-2" align="left"><a href="../../../../../../"><div id="title-element"><img src="../../../../../icon.png" width="45%" height="13%"><span id="title-site">Проект</span></div></a></div>
 	  <div class="col-8" align="center"><div id="search-panel"><? include "view/search.php"; ?></div></div>
 	  <div class="col-2">
 		<div id="head-right">
